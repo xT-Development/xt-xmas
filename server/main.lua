@@ -2,6 +2,17 @@ local QBCore = exports['qb-core']:GetCoreObject()
 local sharedItems = QBCore.Shared.Items
 local trees = {}
 
+local function HasUsedTree(closestTree, citizenId)
+    local callback = false
+    for _, v in pairs(trees[closestTree].citizenIDs) do
+            if citizenId == v then
+                callback = true
+                break
+            end
+    end
+    return callback
+end
+
 -- Get gifts from tree --
 RegisterServerEvent('rs-xmas:server:GetGift', function(closestTree)
     local src = source
@@ -10,10 +21,10 @@ RegisterServerEvent('rs-xmas:server:GetGift', function(closestTree)
     local idk = 0
     if not Player then return end
 
-    if trees[closestTree].citizenId == nil then
+    if not HasUsedTree(closestTree, citizenId) then
         Player.Functions.AddItem('xmas_gift', Config.GiftAmount)
         TriggerClientEvent('inventory:client:ItemBox', src, sharedItems['xmas_gift'], "add", Config.GiftAmount)
-        trees[closestTree].citizenId = 1
+        table.insert(trees[closestTree].citizenIDs, citizenId)
     else
         TriggerClientEvent("QBCore:Notify", src, "There\'s no gifts at this tree with your name on it!", 'error')
     end
@@ -54,9 +65,9 @@ end)
 -- Create Trees Table w/ IDs --
 RegisterServerEvent('rs-xmas:server:TreesTable', function()
     for r = 1, #Config.Trees.spawnLocations do
-        if trees[r] == nil then
-            table.insert(trees, {treeID = r,})
-        end
+        trees[r] = {
+            citizenIDs = {}
+        }
     end
 end)
 
@@ -78,18 +89,18 @@ RegisterServerEvent('rs-xmas:server:AddItem', function()
             },
         })
     end
+end)
 
-    QBCore.Functions.CreateUseableItem('xmas_gift', function(source)
-        local src = source
-        TriggerClientEvent('rs-xmas:client:OpenGift', src)
-    end)
+QBCore.Functions.CreateUseableItem('xmas_gift', function(source)
+    local src = source
+    TriggerClientEvent('rs-xmas:client:OpenGift', src)
 end)
 
 AddEventHandler('onResourceStart', function(resource)
-   if resource == GetCurrentResourceName() then
+    if resource == GetCurrentResourceName() then
+        TriggerEvent('rs-xmas:server:TreesTable')
         if Config.NewCore then
             TriggerEvent('rs-xmas:server:AddItem')
         end
-        TriggerEvent('rs-xmas:server:TreesTable')
-   end
+    end
 end)
