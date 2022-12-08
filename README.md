@@ -21,3 +21,7 @@ https://streamable.com/edguuq
 - Add the images to your inventory images
 - Set locations for spawning trees
 - Setup gift items and amounts
+- If `Config.NewCore = false` then add the items to your core shared items
+```lua
+['xmas_gift']   = {['name'] = 'xmas_gift',              ['label'] = 'Christmas Gift',               ['weight'] = 100,         ['type'] = 'item',      ['image'] = 'gift.png',    ['unique'] = false,      ['useable'] = true,     ['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'A nice Christmas Gift'},
+['coal']        = {['name'] = 'coal',                   ['label'] = 'Coal',                			['weight'] = 100,         ['type'] = 'item',      ['image'] = 'coal.png',    ['unique'] = false,      ['useable'] = true,     ['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Coal for all the naughty people!'},```
