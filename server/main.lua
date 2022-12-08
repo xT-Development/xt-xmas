@@ -87,7 +87,9 @@ end)
 
 AddEventHandler('onResourceStart', function(resource)
    if resource == GetCurrentResourceName() then
-        TriggerEvent('rs-xmas:server:AddItem')
+        if Config.NewCore then
+            TriggerEvent('rs-xmas:server:AddItem')
+        end
         TriggerEvent('rs-xmas:server:TreesTable')
    end
 end)

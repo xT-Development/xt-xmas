@@ -1,5 +1,6 @@
 print("^1rs-xmas ^7| v1.0 - Christmas Script by ^1Redline Studios")
 Config = {}
+Config.NewCore = true -- Set to true if your core is updated to use the AddItems function
 
 Config.Trees = {
     model = `prop_xmas_tree_int`,
