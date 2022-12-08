@@ -78,11 +78,11 @@ RegisterServerEvent('rs-xmas:server:AddItem', function()
             },
         })
     end
+end)
 
-    QBCore.Functions.CreateUseableItem('xmas_gift', function(source)
-        local src = source
-        TriggerClientEvent('rs-xmas:client:OpenGift', src)
-    end)
+QBCore.Functions.CreateUseableItem('xmas_gift', function(source)
+    local src = source
+    TriggerClientEvent('rs-xmas:client:OpenGift', src)
 end)
 
 AddEventHandler('onResourceStart', function(resource)
