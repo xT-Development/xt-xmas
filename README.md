@@ -14,6 +14,9 @@ Simple Christmas Resource for QBCore
 
 Happy Holidays from the Redline Studios Team!
 
+# Preview:
+https://streamable.com/edguuq
+
 # Installation:
 - Add the images to your inventory images
 - Set locations for spawning trees
