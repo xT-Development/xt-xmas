@@ -1,23 +1,8 @@
-fx_version "cerulean"
-
-description "Christmas resource for QB-Core"
-author "Redline Studios"
-version '1.0'
-
+fx_version 'cerulean'
+game 'gta5'
+use_experimental_fxv2_oal 'yes'
 lua54 'yes'
 
-games {
-  "gta5",
-}
-
-shared_scripts  {
-  "shared/*.lua"
-}
-
-client_scripts {
-  "client/*.lua"
-}
-
-server_script  {
-  "server/*.lua"
-}
+shared_scripts { '@ox_lib/init.lua', 'shared/*.lua' }
+client_scripts { 'client/*.lua' }
+server_scripts { 'server/*.lua' }
