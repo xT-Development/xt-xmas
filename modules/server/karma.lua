@@ -10,6 +10,12 @@ function holiday_karma.increaseHolidayKarma(src, amount)
 
     state:set('holidayKarma', newKarma, true)
 
+    lib.notify(src, {
+        title = 'Holiday Karma',
+        description = 'Your holiday karma has increased by ' .. amount .. '. Current karma: ' .. newKarma .. '.',
+        type = 'success'
+    })
+
     return newKarma
 end
 
@@ -20,6 +26,12 @@ function holiday_karma.decreaseHolidayKarma(src, amount)
     local newKarma = currentKarma - amount
 
     state:set('holidayKarma', newKarma, true)
+
+    lib.notify(src, {
+        title = 'Holiday Karma',
+        description = 'Your holiday karma has decreased by ' .. amount .. '. Current karma: ' .. newKarma .. '.',
+        type = 'error'
+    })
 
     return newKarma
 end
