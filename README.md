@@ -19,6 +19,8 @@
 - [ox_target](https://github.com/CommunityOx/ox_target/releases)
 - [Renewed-Lib](https://github.com/Renewed-Scripts/Renewed-Lib)
 
+# [Preview](https://streamable.com/aew0ps)
+
 ### **Why no present items?**
 I figured that there's a large chance some players in servers will "horde" their presents after the holidays. Most devs/owners will remove this script after the holiday seasons. With that, it would make the presents useless. With it giving players items as they check the tree, we can gaurantee they get their "rewards" as soon as they look for presents under each tree.
 
