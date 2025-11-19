@@ -119,7 +119,7 @@ AddEventHandler('Renewed-Lib:server:playerRemoved', function(source, player)
     local charId = player.charId
     local karma = holiday_karma.getHolidayKarma(source)
 
-    kvp_utils.setPlayerKvp(source, 'holidayKarma', karma)
+    kvp_utils.setPlayerKvp(source, karma)
 end)
 
 AddEventHandler('onResourceStart', function(resource)
