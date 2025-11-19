@@ -19,11 +19,11 @@ lib.callback.register('xt-xmas:server:getCurrentPlayers', function(source)
 
         local karma = holiday_karma.getHolidayKarma(src)
 
-        table.insert(players, {
+        players[#players + 1] = {
             source = src,
             name = Renewed:getCharName(src),
             karma = karma
-        })
+        }
     end
 
    return players
