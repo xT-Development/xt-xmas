@@ -10,9 +10,9 @@ return {
 
         blip = {
             label = 'Santa Claus',
-            sprite = 166,
-            color = 5,
-            scale = 0.8
+            sprite = 58,
+            color = 2,
+            scale = 0.6
         },
 
         appearance = {
