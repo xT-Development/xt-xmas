@@ -5,18 +5,14 @@ local Renewed = exports['Renewed-Lib']
 local kvp_utils = {}
 
 -- get player karma kvp
-function kvp_utils.getPlayerKvp(src)
-    local charId = Renewed:getCharId(src)
-
+function kvp_utils.getPlayerKvp(charId)
     local karma = GetResourceKvpInt('holidayKarma_' .. charId) or startingKarma
 
     return karma
 end
 
 -- set player karma kvp
-function kvp_utils.setPlayerKvp(src, value)
-    local charId = Renewed:getCharId(src)
-
+function kvp_utils.setPlayerKvp(charId, value)
     SetResourceKvpInt('holidayKarma_' .. charId, value)
 
     return true
@@ -30,8 +26,9 @@ function kvp_utils.saveAllPlayers()
         src = tonumber(src)
 
         local karma = holiday_karma.getHolidayKarma(src)
+        local charId = Renewed:getCharId(src)
 
-        kvp_utils.setPlayerKvp(src, karma)
+        kvp_utils.setPlayerKvp(charId, karma)
     end
 end
 

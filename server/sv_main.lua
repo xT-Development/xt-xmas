@@ -108,18 +108,16 @@ end)
 
 -- load holiday karma from kvp on player load
 AddEventHandler('Renewed-Lib:server:playerLoaded', function(source, player)
-    local charId = player.charId
-    local karma = kvp_utils.getPlayerKvp(source)
+    local karma = kvp_utils.getPlayerKvp(player.charId)
 
     holiday_karma.setHolidayKarma(source, karma)
 end)
 
 -- save holiday karma to kvp on player unload
 AddEventHandler('Renewed-Lib:server:playerRemoved', function(source, player)
-    local charId = player.charId
     local karma = holiday_karma.getHolidayKarma(source)
 
-    kvp_utils.setPlayerKvp(source, karma)
+    kvp_utils.setPlayerKvp(player.charId, karma)
 end)
 
 AddEventHandler('onResourceStart', function(resource)
